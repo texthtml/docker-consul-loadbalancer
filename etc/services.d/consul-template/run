@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv sh
+set -e
+
+if [ -d /etc/consul-template/conf ]; then
+  exec consul-template \
+       -consul ${CONSUL_URL:-localhost:8500} \
+       -config "/etc/consul-template/conf"
+fi
